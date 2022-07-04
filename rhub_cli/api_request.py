@@ -59,7 +59,8 @@ class APIRequest:
 
     def handle_response(self, response: Response):
         data = response
-        if response.status_code == 200 and response.parsed:
+        # if response.status_code == 200 and response.parsed:
+        if response.parsed:
             if isinstance(response.parsed, str):
                 data = response.parsed
             else:
@@ -83,3 +84,4 @@ class APIRequest:
 
 
 pass_api = click.make_pass_decorator(APIRequest, ensure=True)
+
